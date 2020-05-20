@@ -1,0 +1,86 @@
+.citySelectorCtn{
+    min-height: 100vh;
+    background-color: #fff;
+    .headerCtn{
+        position: relative;
+        height: 50px;
+        background-color: #2fa1ff;
+        line-height: 50px;
+        .backBtn{
+            height: 100%;
+            background-color: transparent;
+            border: none;
+
+            vertical-align: top;
+            line-height: 100%;
+        }
+        .citySelectorSearchInput{
+            display: inline-block;
+            width: calc(100% - 62px);
+            height: 42px;
+            padding: 0 5px;
+            margin-top: 4px;
+            border: none;
+            vertical-align: top;
+            font-size: 18px;
+            border-radius: 3px;
+        }
+        .clearBtn{
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            transform: translateY(-50%);
+        }
+    }
+    .cityListCtn{
+        position: relative;
+        .cityList{
+            .selectorSection{
+                margin: 0;
+                padding: 0;
+                li{
+                    list-style: none;
+                    padding: 10px 14px;
+                    font-size: 16px;
+                }
+                .sectionTitle{
+                    background-color: rgba(62, 142, 255, 0.16);
+                    font-weight: bold;
+                }
+                .selectorLi{
+
+                }
+            }
+        }
+        .alphaList{
+            position: fixed;
+            right: 10px;
+            top: 53px;
+            .alphaItem{
+                padding: .5px 0;
+                list-style: none;
+                font-size: 14px;
+                color: #438aff;
+                font-weight: bold;
+            }
+        }
+    }
+    .searchListCtn{
+        .searchList{
+            margin: 0;
+            padding: 0;
+            .searchItem{
+                list-style: none;
+                padding: 10px 14px;
+                font-size: 16px;
+                border-bottom: 1px solid #e5e5e5;
+            }
+        }
+    }
+}
+.hidden{
+    display: none;
+}

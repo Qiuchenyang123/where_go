@@ -1,0 +1,36 @@
+.timeSelectorCtn{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    .monthCtn{
+        width: 100%;
+        .monthTitle{
+            margin: 0;
+            padding: 10px;
+            background-color: rgba(62, 142, 255, 0.16);
+            color: #333;
+            font-size: 20px;
+            text-align: center;
+        }
+        .timeTable{
+            width: 100%;
+            text-align: center;
+            th{
+
+            }
+            .weekend{
+                color: #ffae62;
+            }
+            .weekday{
+
+            }
+        }
+    }
+}
+.hidden{
+    display: none;
+}

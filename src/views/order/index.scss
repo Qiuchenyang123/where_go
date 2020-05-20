@@ -1,0 +1,76 @@
+/*
+body{
+    padding-top: 60px;
+}
+.myTodoListCtn {
+    width: 560px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, .2);
+
+    h1 {
+        font-weight: bold;
+        font-size: 100px;
+        color: #ff8957;
+        text-align: center;
+    }
+
+    .controlItem {
+        padding: 14px 20px;
+
+        .addInput {
+            width: 400px;
+            height: 42px;
+            padding: 4px 5px;
+            border: 1px solid #a7a7a7;
+            border-right: none;
+            vertical-align: top;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .addBtn {
+            height: 42px;
+            border: 1px solid #a7a7a7;
+            background-color: #fff;
+            border-left: none;
+            vertical-align: top;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background-color: #d6d6d6;
+            }
+        }
+    }
+
+    .todoList {
+        margin: 0;
+        padding: 14px;
+        list-style: none;
+        .listItem {
+            margin: 0;
+            padding: 14px 16px;
+            list-style: none;
+            font-size: 20px;
+            border-bottom: 1px solid #dedede;
+            .listCheckbox{
+                margin-right: 14px;
+                vertical-align: middle;
+                &:checked + .todoItemTxt{
+                    text-decoration: line-through;
+                }
+            }
+            .todoItemTxt{
+                vertical-align: middle;
+            }
+            .todoItemRemove{
+                float: right;
+                margin-top: 10px;
+                vertical-align: middle;
+            }
+        }
+    }
+}*/

@@ -1,0 +1,17 @@
+.indexCtn{
+    position: relative;
+    padding-top: 46px;
+    .header_wrap{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .citySelector_wrap{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+    }
+}
