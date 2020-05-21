@@ -1,14 +1,10 @@
 import {
     ACTION_SET_FROM,
     ACTION_SET_TO,
-    ACTION_SET_IS_CITY_SELECTOR_VISIBLE,
-    ACTION_SET_CURRENT_SELECTING_LEFT_CITY,
-    ACTION_SET_CITY_DATA,
-    ACTION_SET_IS_LOADING_CITY_DATA,
     ACTION_SET_DEPART_DATE,
-    ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
-    ACTION_SET_HIGH_SPEED,
-} from '../actions/indexActions';
+    ACTION_SET_TICKET_LIST_DATA,
+    ACTION_SET_TICKET_LIST_LOADING_STATUS,
+} from '../actions/queryActions';
 
 export default {
     from(state = '北京', action) {
@@ -29,44 +25,8 @@ export default {
                 return state
         }
     },
-    isCitySelectorVisible(state = false, action) {
-        const { type, payload } = action;
-        switch (type) {
-            case ACTION_SET_IS_CITY_SELECTOR_VISIBLE:
-                return payload;
-            default:
-                return state
-        }
-    },
-    currentSelectingLeftCity(state = false, action) {
-        const { type, payload } = action;
-        switch (type) {
-            case ACTION_SET_CURRENT_SELECTING_LEFT_CITY:
-                return payload;
-            default:
-                return state
-        }
-    },
-    cityData(state = null, action) {
-        const { type, payload } = action;
-        switch (type) {
-            case ACTION_SET_CITY_DATA:
-                return payload;
-            default:
-                return state
-        }
-    },
-    isLoadingCityData(state = false, action) {
-        const { type, payload } = action;
-        switch (type) {
-            case ACTION_SET_IS_LOADING_CITY_DATA:
-                return payload;
-            default:
-                return state
-        }
-    },
     departDate(state = null, action) {
-        const { type, payload } = action;
+        const {type, payload} = action;
         switch (type) {
             case ACTION_SET_DEPART_DATE:
                 return payload;
@@ -74,22 +34,41 @@ export default {
                 return state
         }
     },
-    isDateSelectorVisible(state = false, action) {
-        const { type, payload } = action;
+    formerDay(state = null, action) {
+        const {type, payload} = action;
         switch (type) {
-            case ACTION_SET_IS_DATE_SELECTOR_VISIBLE:
+            case ACTION_SET_DEPART_DATE:
                 return payload;
             default:
                 return state
         }
     },
-    highSpeed(state = false, action) {
-        const { type, payload } = action;
+    ticketListData(state = [], action) {
+        const {type, payload} = action;
         switch (type) {
-            case ACTION_SET_HIGH_SPEED:
+            case ACTION_SET_TICKET_LIST_DATA:
                 return payload;
             default:
                 return state
         }
     },
+    ticketListLoadingStatus(state = false, action) {
+        const {type, payload} = action;
+        switch (type) {
+            case ACTION_SET_TICKET_LIST_LOADING_STATUS:
+                return payload;
+            default:
+                return state
+        }
+    },
+    selectedTicketData(state = false, action) {
+        const {type, payload} = action;
+        switch (type) {
+            case ACTION_SET_TICKET_LIST_LOADING_STATUS:
+                return payload;
+            default:
+                return state
+        }
+    },
+
 }

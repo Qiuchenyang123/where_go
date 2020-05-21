@@ -12,6 +12,9 @@ const store = createStore(reducer,
     {
         from: '',
         to: '',
+        departDate: null,
+        ticketListLoadingStatus: false,
+        ticketListData: [],
     },
     applyMiddleware(thunk));
 

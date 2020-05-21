@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './asset/css/index/Journey.scss'
 import PropTypes from "prop-types";
 import {SwapOutlined} from '@ant-design/icons';
