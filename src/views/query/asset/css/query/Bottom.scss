@@ -1,0 +1,32 @@
+.bottomCtn{
+
+    .bottomBtnList{
+        display: flex;
+        width: 100%;
+        background-color: #fff;
+        .bottomBtnItem{
+            width: 25%;
+            text-align: center;
+            list-style: none;
+            .btnIcon{
+                display: block;
+                width: 32px;
+                height: 32px;
+                margin: 10px auto;
+            }
+            .iconTime{
+                background: url("../../images/time.svg") no-repeat center center / 32px 32px;
+            }
+            .iconSubway{
+                background: url("../../images/subway.svg") no-repeat center center / 32px 32px;
+            }
+            .iconTicket{
+                background: url("../../images/ticket.svg") no-repeat center center / 32px 32px;
+            }
+            .iconFilter{
+                background: url("../../images/filter.svg") no-repeat center center / 32px 32px;
+            }
+        }
+    }
+
+}

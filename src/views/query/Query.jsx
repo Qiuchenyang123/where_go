@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import Nav from "./Nav";
 import List from "./List";
 import Bottom from "./Bottom";
-import URI from 'urijs'
+import URI from 'urijs';
+import './index.scss'
 import {
     setTo,
     setFrom,
@@ -48,8 +49,10 @@ function Query(props) {
             <Nav
                 departDate={departDate}
                 {...navCbs}/>
-            <List
-                ticketListData={ticketListData}/>
+            <div className="listWrap">
+                <List
+                    ticketListData={ticketListData}/>
+            </div>
             <Bottom/>
         </div>
     );
