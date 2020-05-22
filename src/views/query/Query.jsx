@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo, useCallback} from 'react';
 import Header from "./components/Header";
 import Nav from "./Nav";
 import List from "./List";
@@ -12,6 +12,8 @@ import {
     setFormerDay,
     setLaterDay,
     fetchTicketList,
+    showFilterLayer,
+    hideFilterLayer,
     selectTicket
 } from './actions/queryActions';
 import {bindActionCreators} from 'redux'
@@ -23,6 +25,7 @@ function Query(props) {
         to,
         departDate,
         ticketListData,
+        filterLayerVisible,
         dispatch
     } = props;
     useEffect(() => {
@@ -36,6 +39,12 @@ function Query(props) {
         return bindActionCreators({
             setFormerDay,
             setLaterDay
+        }, dispatch)
+    }, []);
+    const bottomCbs = useMemo(() => {
+        return bindActionCreators({
+            showFilterLayer,
+            hideFilterLayer,
         }, dispatch)
     }, []);
     const handleBack = function () {
@@ -53,7 +62,9 @@ function Query(props) {
                 <List
                     ticketListData={ticketListData}/>
             </div>
-            <Bottom/>
+            <Bottom
+                filterLayerVisible={filterLayerVisible}
+                {...bottomCbs}/>
         </div>
     );
 }

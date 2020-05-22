@@ -4,6 +4,7 @@ import {
     ACTION_SET_DEPART_DATE,
     ACTION_SET_TICKET_LIST_DATA,
     ACTION_SET_TICKET_LIST_LOADING_STATUS,
+    ACTION_SET_FILTER_LAYER_VISIBLE,
 } from '../actions/queryActions';
 
 export default {
@@ -70,5 +71,13 @@ export default {
                 return state
         }
     },
-
+    filterLayerVisible(state = false, action) {
+        const {type, payload} = action;
+        switch (type) {
+            case ACTION_SET_FILTER_LAYER_VISIBLE:
+                return payload;
+            default:
+                return state
+        }
+    }
 }

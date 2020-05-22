@@ -4,6 +4,7 @@ export const ACTION_SET_DEPART_DATE = 'SET_DEPART_DATE';
 export const ACTION_SET_FORMER_DAY = 'SET_FORMER_DAY';
 export const ACTION_SET_TICKET_LIST_DATA = 'SET_TICKET_LIST_DATA';
 export const ACTION_SET_TICKET_LIST_LOADING_STATUS = 'SET_TICKET_LIST_LOADING_STATUS';
+export const ACTION_SET_FILTER_LAYER_VISIBLE = 'SET_FILTER_LAYER_VISIBLE';
 export const ACTION_SELECT_TICKET = 'SELECT_TICKET';
 
 export function setFrom(from) {
@@ -82,6 +83,25 @@ export function setTicketListData(ticketListData) {
     return {
         type: ACTION_SET_TICKET_LIST_DATA,
         payload: ticketListData
+    }
+}
+
+export function setFilterLayerVisible(ifShow) {
+    return {
+        type: ACTION_SET_FILTER_LAYER_VISIBLE,
+        payload: ifShow
+    }
+}
+
+export function showFilterLayer() {
+    return dispatch => {
+        dispatch(setFilterLayerVisible(true))
+    }
+}
+
+export function hideFilterLayer() {
+    return dispatch => {
+        dispatch(setFilterLayerVisible(false))
     }
 }
 

@@ -14,6 +14,7 @@ const store = createStore(reducer,
         to: '',
         departDate: null,
         ticketListLoadingStatus: false,
+        filterLayerVisible: false,
         ticketListData: [],
     },
     applyMiddleware(thunk));

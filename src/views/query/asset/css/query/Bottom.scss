@@ -1,5 +1,4 @@
 .bottomCtn{
-
     .bottomBtnList{
         display: flex;
         width: 100%;
@@ -28,5 +27,53 @@
             }
         }
     }
-
+    .filterLayerWrap{
+        position: absolute;
+        top: 0;
+        left: 0;
+        .filterLayerShadow{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            padding-top: 120px;
+            background-color: rgba(28, 28, 28, 0.51);
+            .filterLayerCtn{
+                overflow: auto;
+                height: calc(100vh - 120px);
+                background-color: #fff;
+                .topBtnCtn{
+                    padding: 12px 14px;
+                    border-bottom: 1px solid #eeeeee;
+                    .topBtn{
+                        background-color: transparent;
+                        border: none;
+                        color: #ffac3a;
+                    }
+                }
+                .itemTypesCtn{
+                    .itemTypesHeader{
+                        padding: 12px 14px;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    .itemTypeBtn{
+                        display: inline-block;
+                        margin: 4px 6px;
+                        padding: 6px 14px;
+                        border: 1px solid #dadbd7;
+                        font-size: 14px;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+.hidden{
+    display: none;
+}
+.fr{
+    float: right;
 }
