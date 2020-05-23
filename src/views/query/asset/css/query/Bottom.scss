@@ -67,6 +67,56 @@
                         border-radius: 4px;
                     }
                 }
+                .sliderCtn{
+                    .sliderTitle{
+                        padding: 12px 14px;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    .sliderContent{
+                        position: relative;
+                        width: 80%;
+                        margin-left: calc(10% - 16px);
+                        .bgBar{
+                            position: absolute;
+                            left: 0;
+                            top: 10px;
+                            width: 100%;
+                            height: 4px;
+                            background-color: #f1f0f0;
+                        }
+                        .selectedBar{
+                            position: absolute;
+                            left: 0;
+                            top: 10px;
+                            width: 80%;
+                            height: 4px;
+                            background-color: #229ee6;
+                        }
+                        .radius{
+                            display: inline-block;
+                            position: absolute;
+                            top: -6px;
+                            width: 32px;
+                            height: 32px;
+                            background-color: #e5e5e5;
+                            border-radius: 50%;
+                            .tipTxt{
+                                position: absolute;
+                                top: -20px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                color: #2fa1ff;
+                            }
+                        }
+                        .leftRadius{
+                            //left: calc(10% - 16px);
+                        }
+                        .rightRadius{
+                            //right: calc(10% - 16px);
+                        }
+                    }
+                }
             }
         }
     }

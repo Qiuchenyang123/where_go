@@ -1,6 +1,48 @@
-import React, {useMemo} from 'react';
+import React, {useState, useMemo} from 'react';
 import './asset/css/query/Bottom.scss'
 import {hideFilterLayer} from "./actions/queryActions";
+
+function Slider(props) {
+    const {
+        title,
+
+    } = props;
+    const [departStartTime, setDepartStartTime] = useState(0);
+    const [departEndTime, setDepartEndTime] = useState(24);
+    const leftRadiusPercent = useMemo(() => {
+        let result = Math.round(departStartTime / 24 * 100);
+        if (result > 100) return 100;
+        if (result < 0) return 0;
+        return result
+    }, [departStartTime]);
+    const rightRadiusPercent = useMemo(() => {
+        let result = Math.round(departEndTime / 24 * 100);
+        if (result > 100) return 100;
+        if (result < 0) return 0;
+        return result
+    }, [departEndTime]);
+    const departStartTimeStr = useMemo(() => {
+        return departStartTime + ':00'
+    }, [departStartTime]);
+    const departEndTimeStr = useMemo(() => {
+        return departEndTime + ':00'
+    }, [departEndTime]);
+    return (
+        <div className="sliderCtn">
+            <p className="sliderTitle">{title}</p>
+            <div className="sliderContent">
+                <div className="bgBar"></div>
+                <div className="selectedBar" style={{width: `calc(${rightRadiusPercent - leftRadiusPercent}%)`}}></div>
+                <div className="radius leftRadius" style={{left: leftRadiusPercent + '%'}}>
+                    <span className="tipTxt">{departStartTimeStr}</span>
+                </div>
+                <div className="radius rightRadius" style={{left: rightRadiusPercent + '%'}}>
+                    <span className="tipTxt">{departEndTimeStr}</span>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 function TypesBtnGroup(props) {
     const {
@@ -74,6 +116,7 @@ function FilterLayer(props) {
                 <TypesBtnGroup
                     title={`动车类型`}
                     itemTypes={tranType}/>
+                <Slider/>
             </div>
         </div>
     )
