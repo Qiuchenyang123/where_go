@@ -3,7 +3,6 @@ import dayJs from 'dayjs'
 import './asset/css/ticket/TicketInfo.scss'
 
 function TicketInfo(props) {
-    console.log(6, props);
     const {
         ticketDetail,
         showTicketSchemaLayer,

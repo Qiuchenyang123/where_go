@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #2fa1ff;
+    line-height: 50px;
+    .header_back_btn{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 100%;
+        margin-top: -21px;
+        background-color: transparent;
+        border: none;
+    }
+    h1{
+        margin: 0;
+        color: #fff;
+        font-size: 26px;
+        text-align: center;
+    }
+}

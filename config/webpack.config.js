@@ -576,7 +576,7 @@ module.exports = function(webpackEnv) {
               {
                 inject: true,
                 template: paths.appTicketHtml,
-                filename: 'ticket.html',
+                filename: 'order.html',
                 chunks: ['ticket']
               },
               isEnvProduction

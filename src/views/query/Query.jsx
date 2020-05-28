@@ -51,7 +51,7 @@ function Query(props) {
     };
     const selectTicket = function (ticketInfo) {
         localStorage.setItem('cache_ticket_info', JSON.stringify(ticketInfo))
-        window.open('/ticket.html', '_self')
+        window.open('/order.html', '_self')
     };
     return (
         <div className={`queryCtn`}>
