@@ -78,7 +78,6 @@ function getEntries(globPath) {
       entries[name] = './' + filepath;
     }
   });
-  console.log('entries', entries);
   return entries;
 }
 
@@ -105,6 +104,8 @@ module.exports = {
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appQueryHtml: resolveApp('public/query.html'),
+  appTicketHtml: resolveApp('public/ticket.html'),
+  appOrderHtml: resolveApp('public/order.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appQueryJs: resolveModule(resolveApp, 'src/query'),
   appCommonJs: indexJsList,
