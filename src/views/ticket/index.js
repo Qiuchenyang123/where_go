@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css'
 import './index.scss';
 import App from './App';
-// import App from './lessonText/context'
-// import App from './lessonText/contextType'
-// import App from './lessonText/lazy_suspense_errorBoundary'
-// import App from './lessonText/memo'
-// import App from './lessonText/useState'
-// import App from './lessonText/useEffect'
-// import App from './lessonText/useContext'
-// import App from './lessonText/todoList'
 import * as serviceWorker from '../../asset/serviceWorker';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk'
+import reducer from './reducers/ticketReducer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(reducer, {
+    ticketSchemaLayerVisible: false,
+    ticketSchemaData: []
+}, applyMiddleware(thunk));
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

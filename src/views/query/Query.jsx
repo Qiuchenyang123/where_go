@@ -14,7 +14,6 @@ import {
     fetchTicketList,
     showFilterLayer,
     hideFilterLayer,
-    selectTicket
 } from './actions/queryActions';
 import {bindActionCreators} from 'redux'
 import dayJs from 'dayjs'
@@ -50,6 +49,10 @@ function Query(props) {
     const handleBack = function () {
         window.history.go(-1)
     };
+    const selectTicket = function (ticketInfo) {
+        localStorage.setItem('cache_ticket_info', JSON.stringify(ticketInfo))
+        window.open('/ticket.html', '_self')
+    };
     return (
         <div className={`queryCtn`}>
             <div className="header_wrap">
@@ -60,6 +63,7 @@ function Query(props) {
                 {...navCbs}/>
             <div className="listWrap">
                 <List
+                    selectTicket={selectTicket}
                     ticketListData={ticketListData}/>
             </div>
             <Bottom

@@ -1,0 +1,61 @@
+.purchaseSuspenseCtn{
+    .ticketTypeList{
+        background-color: #fff;
+        .ticketTypeItemCtn{
+            .ticketCandidateInfo{
+                height: 50px;
+                padding: 0 12px;
+                border-bottom: 1px solid #d8d8d8;
+                line-height: 50px;
+                .ticketType{
+                    font-weight: bold;
+                }
+                .ticketPrice{
+                    margin-left: 22px;
+                    color: #ff870c;
+                    font-weight: bold;
+                }
+                .ticketStatus{
+                    margin-right: 10px;
+                }
+                .fr{
+                    float: right;
+                }
+            }
+            .ticketBuyBtn{
+                margin-top: 11px;
+                padding: 4px 10px;
+                border: 1px solid #ff870c;
+                background-color: transparent;
+                color: #ff870c;
+                border-radius: 4px;
+            }
+            .candidateList{
+                overflow: hidden;
+                background-color: #f4f4f4;
+
+                box-sizing: border-box;
+                .channelCtn{
+                    padding: 12px;
+                    position: relative;
+                    border-bottom: 1px solid #dedede;
+                    .title{
+                        padding-bottom: 6px;
+                        font-weight: bold;
+                    }
+                    .desc{
+                    }
+                    .ticketBuyBtn{
+                        position: absolute;
+                        right: 12px;
+                        top: 50%;
+                        transform: translateY(-100%);
+                    }
+                }
+            }
+            .candidateList.hidden{
+                height: 0;
+            }
+        }
+    }
+}

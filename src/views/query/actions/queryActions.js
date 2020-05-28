@@ -5,7 +5,6 @@ export const ACTION_SET_FORMER_DAY = 'SET_FORMER_DAY';
 export const ACTION_SET_TICKET_LIST_DATA = 'SET_TICKET_LIST_DATA';
 export const ACTION_SET_TICKET_LIST_LOADING_STATUS = 'SET_TICKET_LIST_LOADING_STATUS';
 export const ACTION_SET_FILTER_LAYER_VISIBLE = 'SET_FILTER_LAYER_VISIBLE';
-export const ACTION_SELECT_TICKET = 'SELECT_TICKET';
 
 export function setFrom(from) {
     return {
@@ -105,9 +104,3 @@ export function hideFilterLayer() {
     }
 }
 
-export function selectTicket(selectedTicketData) {
-    return {
-        type: ACTION_SELECT_TICKET,
-        payload: selectedTicketData
-    }
-}

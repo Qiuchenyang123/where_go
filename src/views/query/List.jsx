@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import {ArrowRightOutlined} from '@ant-design/icons'
 import './asset/css/query/List.scss'
 
 function TicketLi(props) {
@@ -8,7 +7,7 @@ function TicketLi(props) {
         selectTicket
     } = props;
     return (
-        <li className={`listItem`} onClick={() => {selectTicket()}}>
+        <li className={`listItem`} onClick={() => {selectTicket(ticket)}}>
             <div className="leftCtn">
                 <p className="stationTxt">{ticket.detail.from}</p>
                 <p className="timeTxt">{ticket.detail.departTimeStr}</p>

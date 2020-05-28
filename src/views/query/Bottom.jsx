@@ -1,6 +1,6 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect, useRef} from 'react';
 import './asset/css/query/Bottom.scss'
-import {hideFilterLayer} from "./actions/queryActions";
+import useWinSize from "./utils/useWinSize";
 
 function Slider(props) {
     const {
@@ -9,6 +9,7 @@ function Slider(props) {
     } = props;
     const [departStartTime, setDepartStartTime] = useState(0);
     const [departEndTime, setDepartEndTime] = useState(24);
+    const winSize = useWinSize();
     const leftRadiusPercent = useMemo(() => {
         let result = Math.round(departStartTime / 24 * 100);
         if (result > 100) return 100;
@@ -27,16 +28,97 @@ function Slider(props) {
     const departEndTimeStr = useMemo(() => {
         return departEndTime + ':00'
     }, [departEndTime]);
+    const leftRadius = useRef();
+    const rightRadius = useRef();
+    const leftRadiusLastX = useRef();
+    const rightRadiusLastX = useRef();
+    const bgBar = useRef();
+    const bgBarWidth = useRef();
+    function leftRadiusTouchStartHandle(e) {
+        const touch = e.targetTouches[0];
+        leftRadiusLastX.current = touch.pageX
+    }
+    function leftRadiusTouchMoveHandle(e) {
+        const touch = e.targetTouches[0];
+        const distance = touch.pageX - leftRadiusLastX.current;
+        // bgBarWidth.current = parseFloat(window.getComputedStyle(bgBar.current).width);
+        let startTime = Math.round(distance / bgBarWidth.current * 24);
+        startTime = startTime > departEndTime ? departEndTime : startTime < 0 ? 0 : startTime;
+        setDepartStartTime(startTime);
+    }
+    function rightRadiusTouchStartHandle(e) {
+        const touch = e.targetTouches[0];
+        rightRadiusLastX.current = touch.pageX
+    }
+    function rightRadiusTouchMoveHandle(e) {
+        const touch = e.targetTouches[0];
+        const distance = rightRadiusLastX.current - touch.pageX;
+        // bgBarWidth.current = parseFloat(window.getComputedStyle(bgBar.current).width);
+        // console.log(59, bgBarWidth.current)
+        let endTime = Math.round((1 - distance / bgBarWidth.current) * 24);
+        endTime = endTime < departStartTime ? departStartTime : endTime > 24 ? 24 : endTime
+        setDepartEndTime(endTime);
+    }
+    useEffect(() => {
+        leftRadius.current.addEventListener(
+            'touchstart',
+            leftRadiusTouchStartHandle,
+            false
+        );
+        leftRadius.current.addEventListener(
+            'touchmove',
+            leftRadiusTouchMoveHandle,
+            false
+        );
+        rightRadius.current.addEventListener(
+            'touchstart',
+            rightRadiusTouchStartHandle,
+            false
+        );
+        rightRadius.current.addEventListener(
+            'touchmove',
+            rightRadiusTouchMoveHandle,
+            false
+        );
+        return () => {
+            leftRadius.current.removeEventListener(
+                'touchstart',
+                leftRadiusTouchStartHandle,
+                false
+            );
+            leftRadius.current.removeEventListener(
+                'touchmove',
+                leftRadiusTouchMoveHandle,
+                false
+            );
+            rightRadius.current.removeEventListener(
+                'touchstart',
+                rightRadiusTouchStartHandle,
+                false
+            );
+            rightRadius.current.removeEventListener(
+                'touchmove',
+                rightRadiusTouchMoveHandle,
+                false
+            );
+        }
+    });
+    useEffect(() => {
+        bgBarWidth.current = document.documentElement.clientWidth * parseFloat(window.getComputedStyle(bgBar.current).width) / 100;
+        // bgBarWidth.current = parseFloat(bgBar.current.getBoundingClientRect().width);
+        console.log(39, bgBarWidth.current);
+    }, [winSize.width]);
+
     return (
         <div className="sliderCtn">
             <p className="sliderTitle">{title}</p>
-            <div className="sliderContent">
+            <div ref={bgBar} className="sliderContent">
                 <div className="bgBar"></div>
-                <div className="selectedBar" style={{width: `calc(${rightRadiusPercent - leftRadiusPercent}%)`}}></div>
-                <div className="radius leftRadius" style={{left: leftRadiusPercent + '%'}}>
+                <div className="selectedBar" style={{left: leftRadiusPercent + '%', width: `calc(${rightRadiusPercent - leftRadiusPercent}%)`}}></div>
+                <div ref={leftRadius} className="radius leftRadius" style={{left: leftRadiusPercent + '%'}}>
                     <span className="tipTxt">{departStartTimeStr}</span>
                 </div>
-                <div className="radius rightRadius" style={{left: rightRadiusPercent + '%'}}>
+                <div ref={rightRadius} className="radius rightRadius" style={{left: rightRadiusPercent + '%'}}>
                     <span className="tipTxt">{departEndTimeStr}</span>
                 </div>
             </div>
@@ -66,6 +148,9 @@ function TypesBtnGroup(props) {
 }
 
 function FilterLayer(props) {
+    const {
+        hideFilterLayer
+    } = props;
     const ticketsType = useMemo(() => {
         return [
             {
@@ -103,12 +188,13 @@ function FilterLayer(props) {
             }
         ]
     }, []);
+
     return (
         <div className="filterLayerShadow">
             <div className="filterLayerCtn">
                 <div className="topBtnCtn">
-                    <button className={`topBtn`}>取消</button>
-                    <button className={`topBtn fr`}>确定</button>
+                    <button onClick={() => {hideFilterLayer()}} className={`topBtn`}>取消</button>
+                    <button onClick={() => {hideFilterLayer()}} className={`topBtn fr`}>确定</button>
                 </div>
                 <TypesBtnGroup
                     title={`车票类型`}
